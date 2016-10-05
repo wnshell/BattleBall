@@ -46,6 +46,14 @@ public class MoveBall : MonoBehaviour {
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Goal")
         {
+            if (collidedWith.name == "Goal1")
+            {
+                GameObject.Find("Main Camera").GetComponent<ScoreTracker>().scoredp1 = true;
+            }
+            else
+            {
+                GameObject.Find("Main Camera").GetComponent<ScoreTracker>().scoredp2 = true;
+            }
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             delay = Time.time + respawntime;
