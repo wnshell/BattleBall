@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         movementVector.x = speed;
-        transform.position += transform.forward * (speed / 100);
+        rigid.velocity += transform.forward * (speed / 100);
 
 
     }

@@ -95,10 +95,9 @@ public class PlayerMovement_P2 : MonoBehaviour
                transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * turnspeed);
             }
         }
-        movementVector.x = speed;
-        transform.position += transform.forward * (speed / 100);
 
-
+        movementVector = speed * transform.forward;
+        rigid.velocity = movementVector;
     }
 
     void Update()  
