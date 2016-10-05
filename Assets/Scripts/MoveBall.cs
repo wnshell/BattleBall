@@ -15,12 +15,11 @@ public class MoveBall : MonoBehaviour {
 	}
 
 	void Update(){
-		/*float moveX = Input.GetAxis ("Horizontal");
+		float moveX = Input.GetAxis ("Horizontal");
 		float moveZ = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveX, 0.0f, moveZ);
-
-		ball.AddForce (movement * speed);*/
+		ball.AddForce (movement * speed);
 
 	}
 		
