@@ -34,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
       {
-        //boostGO = GameObject.Find("BoostCount");
-        //boosttext = boostGO.GetComponent<Text>();
-        //boosttext.text = "Boost: 3";
+        boostGO = GameObject.Find("BoostCount");
+        boosttext = boostGO.GetComponent<Text>();
+        boosttext.text = "Boost: 3";
 
         rigid = GetComponent<Rigidbody>();
       }
