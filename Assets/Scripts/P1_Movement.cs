@@ -7,8 +7,10 @@ public class P1_Movement : MonoBehaviour {
 
     public float boostspeed = 100f;
     public float speed;
-    public float boost = 3;
-
+    public float boost = 1;
+    public float deceleration = 10;
+    public float maxspeed;
+    public float minspeed;
     public bool ______________________;
 
 
@@ -22,7 +24,7 @@ public class P1_Movement : MonoBehaviour {
 
         boostGO = GameObject.Find("BoostCount");
         boosttext = boostGO.GetComponent<Text>();
-        boosttext.text = "Boost: 3";
+        boosttext.text = "Boost: 1";
 
         ufo = GetComponent<Rigidbody>();
         ufo.maxAngularVelocity = 20.0f;
@@ -38,30 +40,28 @@ public class P1_Movement : MonoBehaviour {
 
         if (boost > 0)
         {
-            if (Input.GetButtonDown("RightBumper") || Input.GetKeyDown("left shift"))
+            if ((Input.GetButtonDown("RightBumper") || Input.GetKeyDown("left shift")) && speed == maxspeed)
             {
                 speed = speed + boostspeed;
                 boost--;
                 boosttext.text = "Boost: " + boost.ToString();
             }
-            else if (Input.GetButtonDown("LeftBumper") || Input.GetKeyDown("space"))
-            {
-                speed = speed - boostspeed * 1.5f;
-                boost--;
-                boosttext.text = "Boost: " + boost.ToString();
-            }
+
+        }
+        if (maxspeed < speed)
+        {
+            speed = speed - deceleration;
         }
 
-        ufo.AddForce(movement * speed, ForceMode.Acceleration);
-
+        ufo.velocity = movement * speed;
     }
 
     void OnTriggerEnter(Collider coll)
     {
         GameObject collidedWith = coll.gameObject;
-        if (collidedWith.tag == "PowerUpB" && boost < 6)
+        if (collidedWith.tag == "PowerUpB" && boost < 3)
         {
-            boost = boost + 3;
+            boost++;
             boosttext.text = "Boost: " + boost.ToString();
 
         }

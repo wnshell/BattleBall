@@ -3,12 +3,15 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class P2_Movement : MonoBehaviour {
+public class P2_Movement : MonoBehaviour
+{
 
     public float boostspeed = 100f;
     public float speed;
-    public float boost = 3;
-
+    public float boost = 1;
+    public float deceleration = 10;
+    public float maxspeed;
+    public float minspeed;
     public bool ______________________;
 
 
@@ -18,11 +21,12 @@ public class P2_Movement : MonoBehaviour {
     public Text boosttext;
     GameObject boostGO;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         boostGO = GameObject.Find("BoostCount_P2");
         boosttext = boostGO.GetComponent<Text>();
-        boosttext.text = "Boost: 3";
+        boosttext.text = "Boost: 1";
 
         ufo = GetComponent<Rigidbody>();
         ufo.maxAngularVelocity = 20.0f;
@@ -38,31 +42,28 @@ public class P2_Movement : MonoBehaviour {
 
         if (boost > 0)
         {
-            if (Input.GetButtonDown("RightBumper") || Input.GetKeyDown("left shift"))
+            if ((Input.GetButtonDown("RightBumper_P2") || Input.GetKeyDown("left shift")) && speed == maxspeed)
             {
                 speed = speed + boostspeed;
                 boost--;
                 boosttext.text = "Boost: " + boost.ToString();
             }
-            else if (Input.GetButtonDown("LeftBumper") || Input.GetKeyDown("space"))
-            {
-                speed = speed - boostspeed * 1.5f;
-                boost--;
-                boosttext.text = "Boost: " + boost.ToString();
-            }
+
+        }
+        if (maxspeed < speed)
+        {
+            speed = speed - deceleration;
         }
 
-
-        ufo.AddForce(movement * speed, ForceMode.Acceleration);
-
+        ufo.velocity = movement * speed;
     }
 
     void OnTriggerEnter(Collider coll)
     {
         GameObject collidedWith = coll.gameObject;
-        if (collidedWith.tag == "PowerUpB" && boost < 6)
+        if (collidedWith.tag == "PowerUpB" && boost < 3)
         {
-            boost = boost + 3;
+            boost++;
             boosttext.text = "Boost: " + boost.ToString();
 
         }

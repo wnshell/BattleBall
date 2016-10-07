@@ -48,11 +48,16 @@ public class ScoreTracker : MonoBehaviour {
         if (scorep1 == 3 || scorep2 == 3) {
             if (scorep1 > scorep2)
             {
-                gameovertext.text = "GAME OVER \n  Player1 Wins!!";
+                gameovertext.text = "GAME OVER Player1 Wins!!";
             }
             else {
-                gameovertext.text = "GAME OVER  \n  Player2 Wins!!";
+                gameovertext.text = "GAME OVER Player2 Wins!!";
             }
+            Destroy(GameObject.Find("Ball"));
+            GameObject.Find("PlayAgain").GetComponent<Renderer>().enabled = true;
+            GameObject.Find("PlayAgain").GetComponent<Collider>().enabled = true;
+            GameObject.Find("Quit").GetComponent<Renderer>().enabled = true;
+            GameObject.Find("Quit").GetComponent<Collider>().enabled = true;
             gameovertext.text = "GAME OVER";
             gameover = Time.time + gameoverdelay;
         }
