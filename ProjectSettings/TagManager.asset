@@ -7,6 +7,9 @@ TagManager:
   - Goal
   - PowerUpB
   - Car
+  - bullet
+  - P1bullet
+  - P2bullet
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - bullet
+  - player
   - 
   - 
   - 

@@ -14,8 +14,8 @@ public class ScoreTracker : MonoBehaviour {
 
     public bool ___________________;
 
-    public Text scoretext;
-    GameObject scoreGO;
+    public Text scoretext_P1;
+	public Text scoretext_P2;
 
     public Text gameovertext;
     GameObject gameoverGO;
@@ -23,9 +23,11 @@ public class ScoreTracker : MonoBehaviour {
     public float gameover;
     // Use this for initialization
     void Start () {
-        scoreGO = GameObject.Find("Score");
-        scoretext = scoreGO.GetComponent<Text>();
-        scoretext.text = "0 : 0";
+		scoretext_P1 = GameObject.Find ("Score_P1").GetComponent<Text> ();
+		scoretext_P2 = GameObject.Find ("Score_P2").GetComponent<Text> ();
+
+		scoretext_P1.text = "0";
+		scoretext_P2.text = "0";
 
         gameoverGO = GameObject.Find("EndGame");
         gameovertext = gameoverGO.GetComponent<Text>();
@@ -37,12 +39,13 @@ public class ScoreTracker : MonoBehaviour {
         if (scoredp1 == true) {
             scoredp1 = false;
             scorep1++;
+			scoretext_P1.text = scorep1.ToString ();
         }
         else if(scoredp2 == true){
             scoredp2 = false;
             scorep2++;
+			scoretext_P2.text = scorep2.ToString ();
         }
-        scoretext.text = scorep1.ToString() + " : " + scorep2.ToString();
 
 
         if (scorep1 == 3 || scorep2 == 3) {
@@ -58,7 +61,6 @@ public class ScoreTracker : MonoBehaviour {
             GameObject.Find("PlayAgain").GetComponent<Collider>().enabled = true;
             GameObject.Find("Quit").GetComponent<Renderer>().enabled = true;
             GameObject.Find("Quit").GetComponent<Collider>().enabled = true;
-            gameovertext.text = "GAME OVER";
             gameover = Time.time + gameoverdelay;
         }
     }

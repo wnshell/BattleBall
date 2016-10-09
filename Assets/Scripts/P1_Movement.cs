@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class P1_Movement : MonoBehaviour {
 
-    public float boostspeed = 100f;
+    public float boostspeed;
     public float speed;
     public float boost = 1;
-    public float deceleration = 10;
-    public float maxspeed;
-    public float minspeed;
+
+	public float maxSpeed = 200.0f;
+
     public bool ______________________;
 
 
@@ -24,10 +24,9 @@ public class P1_Movement : MonoBehaviour {
 
         boostGO = GameObject.Find("BoostCount");
         boosttext = boostGO.GetComponent<Text>();
-        boosttext.text = "Boost: 1";
+		boosttext.text = "Boost\n    " + boost.ToString ();
 
         ufo = GetComponent<Rigidbody>();
-        ufo.maxAngularVelocity = 20.0f;
     }
 
     // Update is called once per frame
@@ -38,22 +37,22 @@ public class P1_Movement : MonoBehaviour {
 
         movement = new Vector3(moveX, 0.0f, moveZ);
 
+
         if (boost > 0)
         {
-            if ((Input.GetButtonDown("RightBumper") || Input.GetKeyDown("left shift")) && speed == maxspeed)
-            {
-                speed = speed + boostspeed;
-                boost--;
-                boosttext.text = "Boost: " + boost.ToString();
+            if ((Input.GetButtonDown("LeftBumper") || Input.GetKeyDown("left shift")))
+            {	
+				if (movement.magnitude > 0.0f) {
+					ufo.velocity += boostspeed * movement.normalized;
+					boost--;
+					boosttext.text = "Boost\n    " + boost.ToString ();
+				}
             }
 
         }
-        if (maxspeed < speed)
-        {
-            speed = speed - deceleration;
-        }
-
-        ufo.velocity = movement * speed;
+		if (ufo.velocity.magnitude <= maxSpeed) {
+			ufo.AddForce (movement * speed);
+		}
     }
 
     void OnTriggerEnter(Collider coll)
@@ -62,7 +61,7 @@ public class P1_Movement : MonoBehaviour {
         if (collidedWith.tag == "PowerUpB" && boost < 3)
         {
             boost++;
-            boosttext.text = "Boost: " + boost.ToString();
+			boosttext.text = "Boost\n    " + boost.ToString ();
 
         }
     }
