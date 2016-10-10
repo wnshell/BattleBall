@@ -938,6 +938,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010203011260, guid: 1e7ae385fbb96bb43a540948db805729,
+        type: 2}
+      propertyPath: minePrefab
+      value: 
+      objectReference: {fileID: 1000011464108166, guid: b4cb2995f843d49718dcffe13e1c21e4,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e7ae385fbb96bb43a540948db805729, type: 2}
   m_IsPrefabParent: 0
@@ -1885,6 +1891,10 @@ Prefab:
         type: 2}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013475305416, guid: 2ac48d3cc20e54fe4be842fed28003b2, type: 2}
+      propertyPath: m_TagString
+      value: ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ac48d3cc20e54fe4be842fed28003b2, type: 2}

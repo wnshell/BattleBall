@@ -10,6 +10,8 @@ TagManager:
   - bullet
   - P1bullet
   - P2bullet
+  - ball
+  - Mine
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - 
   - bullet
   - player
-  - 
-  - 
+  - ball
+  - Mine
   - 
   - 
   - 

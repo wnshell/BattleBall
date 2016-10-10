@@ -8,12 +8,15 @@ public class P1_Turret : MonoBehaviour {
 	public float bulletSpeed;
 
 	public Transform bulletOrigin;
+	public Transform mineOrigin;
 
 	public GameObject bulletPrefab;
+	public GameObject minePrefab;
 
 	// Use this for initialization
 	void Start () {
 		bulletOrigin = GameObject.Find ("BulletOrigin1").GetComponent<Transform>();
+		mineOrigin = GameObject.Find ("MineOrigin1").GetComponent<Transform> ();
 	}
 
 	
@@ -47,6 +50,12 @@ public class P1_Turret : MonoBehaviour {
 				Fire ();
 			}
 		}
+
+		if (Input.GetButtonDown ("A")) {
+			GameObject mine;
+			mine = Instantiate (minePrefab, mineOrigin.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+		}
+
 	}
 
 	void Fire(){
