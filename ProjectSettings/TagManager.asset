@@ -12,6 +12,7 @@ TagManager:
   - P2bullet
   - ball
   - Mine
+  - PowerMine
   layers:
   - Default
   - TransparentFX

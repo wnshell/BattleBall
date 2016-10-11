@@ -6,8 +6,9 @@ public class P1_Turret : MonoBehaviour {
 
 	public float rotSpeed;
 	public float bulletSpeed;
+    public float minecount = 0;
 
-	public Transform bulletOrigin;
+    public Transform bulletOrigin;
 	public Transform mineOrigin;
 
 	public GameObject bulletPrefab;
@@ -52,9 +53,13 @@ public class P1_Turret : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("A")) {
-			GameObject mine;
-			mine = Instantiate (minePrefab, mineOrigin.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-		}
+            if (minecount > 0)
+            {
+                minecount--;
+                GameObject mine;
+                mine = Instantiate(minePrefab, mineOrigin.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+            }
+        }
 
 	}
 

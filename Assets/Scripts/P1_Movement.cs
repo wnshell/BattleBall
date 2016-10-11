@@ -64,5 +64,9 @@ public class P1_Movement : MonoBehaviour {
 			boosttext.text = "Boost\n    " + boost.ToString ();
 
         }
+        else if (collidedWith.tag == "PowerMine" && GetComponentInChildren<P1_Turret>().minecount < 3)
+        {
+            GetComponentInChildren<P1_Turret>().minecount++;
+        }
     }
 }
