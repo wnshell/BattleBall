@@ -35,16 +35,16 @@ public class P1_Turret : MonoBehaviour {
 			}
 		}
 
-		float rotX = Input.GetAxis("RightJoystickX");
+		float rotX = Input.GetAxis ("RightJoystickX");
+		float rotY = Input.GetAxis ("RightJoystickY");
 
-		if (rotX > 0) {
-			//rotate left
-			transform.Rotate(Vector3.up * rotSpeed);
-		} else if (rotX < 0) {
-			//rotate right
-			transform.Rotate(Vector3.down * rotSpeed);
+		Vector3 rightstick = new Vector3 (rotX, 0, rotY);
+
+		float facing = Mathf.Atan2 (rotX, rotY);
+
+		if (rightstick.magnitude > 0.4f) {
+			transform.rotation = Quaternion.Euler (0f, facing * Mathf.Rad2Deg + 180, 0f);
 		}
-
 
 		if (Input.GetButtonDown ("RightBumper")) {
 			if (countBulletsOnScreen () < 4) {
@@ -69,6 +69,7 @@ public class P1_Turret : MonoBehaviour {
 		go = Instantiate (bulletPrefab, bulletOrigin.position, Quaternion.Euler(0, 0, 0)) as GameObject;
 		go.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
 		go.tag = "P1bullet";
+		go.layer = LayerMask.NameToLayer ("Bullet1");
 	}
 
 	public int countBulletsOnScreen(){
