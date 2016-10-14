@@ -30,7 +30,7 @@ public class P1_Movement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         float moveX = Input.GetAxis("LeftJoystickX");
         float moveZ = Input.GetAxis("LeftJoystickY");
@@ -42,8 +42,8 @@ public class P1_Movement : MonoBehaviour {
         {
             if ((Input.GetButtonDown("LeftBumper") || Input.GetKeyDown("left shift")))
             {	
-				if (movement.magnitude > 0.0f) {
-					ufo.velocity += boostspeed * movement.normalized;
+				if (movement.magnitude > 0.3f) {
+					ufo.velocity = boostspeed * movement.normalized;
 					boost--;
 					boosttext.text = "Boost\n    " + boost.ToString ();
 				}
@@ -53,6 +53,10 @@ public class P1_Movement : MonoBehaviour {
 		if (ufo.velocity.magnitude <= maxSpeed) {
 			ufo.AddForce (movement * speed);
 		}
+		if (movement.magnitude <= 0.05f) {
+			ufo.AddForce (-ufo.velocity);
+		}
+
     }
 
     void OnTriggerEnter(Collider coll)

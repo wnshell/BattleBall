@@ -297,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010037272180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71, y: -2.45, z: 0}
+  m_LocalPosition: {x: -0.71, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -919,8 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de5f23b36ff2ca4698748a4429c2489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostspeed: 100
-  speed: 50
+  boostspeed: 150
+  speed: 75
   boost: 1
   maxSpeed: 200
   ______________________: 0
@@ -983,8 +983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 2
-  bulletSpeed: 13
-  minecount: 0
+  bulletSpeed: 14
+  minecount: 1
   bulletOrigin: {fileID: 0}
   mineOrigin: {fileID: 0}
   bulletPrefab: {fileID: 1000011527308084, guid: 97d22b967079749c989daee2139ec266,
