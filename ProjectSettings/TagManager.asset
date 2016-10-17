@@ -13,6 +13,8 @@ TagManager:
   - ball
   - Mine
   - PowerMine
+  - Field
+  - wall
   layers:
   - Default
   - TransparentFX

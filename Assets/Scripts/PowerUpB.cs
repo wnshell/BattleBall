@@ -30,6 +30,8 @@ public class PowerUpB : MonoBehaviour {
             gameObject.GetComponent<Collider>().enabled = false;
             delay = Time.time + respawntime;
             respawn = true;
+			AudioSource s = GameObject.Find ("pickup").GetComponent<AudioSource> ();
+			s.Play ();
         }
     }
 }

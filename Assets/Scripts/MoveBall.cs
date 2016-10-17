@@ -11,13 +11,15 @@ public class MoveBall : MonoBehaviour {
     public float delay;
     public bool respawn = false;
 
+	public AudioSource bounce;
+
     public Rigidbody ball;
 
 	void Start(){
 		ball = GetComponent<Rigidbody> ();
         startpos = ball.transform.position;
 		ball.maxAngularVelocity = 20.0f;
-
+		bounce = GameObject.Find ("ball bounce").GetComponent<AudioSource> ();
 	}
 
 	void Update(){
@@ -49,6 +51,8 @@ public class MoveBall : MonoBehaviour {
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Goal")
         {
+			AudioSource s = GameObject.Find ("cheer").GetComponent<AudioSource> ();
+			s.Play ();
             if (collidedWith.name == "Goal1")
             {
                 GameObject.Find("Main Camera").GetComponent<ScoreTracker>().scoredp1 = true;
@@ -64,5 +68,11 @@ public class MoveBall : MonoBehaviour {
             respawn = true;
         }
     }
+
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag != "Field") {
+			bounce.Play ();
+		}
+	}
 }
 
