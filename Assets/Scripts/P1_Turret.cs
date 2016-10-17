@@ -43,7 +43,7 @@ public class P1_Turret : MonoBehaviour {
 		float facing = Mathf.Atan2 (rotX, rotY);
 
 		if (rightstick.magnitude > 0.4f) {
-			transform.rotation = Quaternion.Euler (0f, facing * Mathf.Rad2Deg + 180, 0f);
+			transform.rotation = Quaternion.Euler (0f, -facing * Mathf.Rad2Deg - 90, 0f);
 		}
 
 		if (Input.GetButtonDown ("RightBumper")) {

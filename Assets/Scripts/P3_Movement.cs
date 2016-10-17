@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class P1_Movement : MonoBehaviour {
+public class P3_Movement : MonoBehaviour {
 
     public float boostspeed;
     public float speed;
@@ -25,20 +25,17 @@ public class P1_Movement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("LeftJoystickX");
-        float moveZ = Input.GetAxis("LeftJoystickY");
+        float moveX = Input.GetAxis("LeftJoystickX_P3");
+        float moveZ = Input.GetAxis("LeftJoystickY_P3");
 
         movement = new Vector3(moveX, 0.0f, moveZ);
 
 
         if (boost > 0)
         {
-            if ((Input.GetButtonDown("LeftBumper") || Input.GetKeyDown("left shift")))
+            if ((Input.GetButtonDown("LeftBumper_P3") || Input.GetKeyDown("left shift")))
             {	
-
 				if (movement.magnitude > 0.3f) {
-					AudioSource s = GameObject.Find ("booster").GetComponent<AudioSource> ();
-					s.Play ();
 					ufo.velocity = boostspeed * movement.normalized;
 					boost--;
                 }
@@ -62,9 +59,9 @@ public class P1_Movement : MonoBehaviour {
             boost++;
 
         }
-        else if (collidedWith.tag == "PowerMine" && GetComponentInChildren<P1_Turret>().minecount < 3)
+        else if (collidedWith.tag == "PowerMine" && GetComponentInChildren<P3_Turret>().minecount < 3)
         {
-            GetComponentInChildren<P1_Turret>().minecount++;
+            GetComponentInChildren<P3_Turret>().minecount++;
         }
     }
 }

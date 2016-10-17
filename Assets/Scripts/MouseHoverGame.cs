@@ -6,6 +6,7 @@ public class MouseHoverGame : MonoBehaviour {
 
     public bool isStart;
     public bool isQuit;
+    public bool isstart4p;
     // Use this for initialization
     void Start () {
         GetComponent<Renderer>().enabled = false;
@@ -27,6 +28,10 @@ public class MouseHoverGame : MonoBehaviour {
         if (isStart)
         {
             Application.LoadLevel("MainScene");
+        }
+        if (isstart4p)
+        {
+            Application.LoadLevel("MainScene4p");
         }
         if (isQuit)
         {

@@ -17,14 +17,8 @@ public class P2_Movement : MonoBehaviour {
 	public Rigidbody ufo;
 	public Vector3 movement;
 
-	public Text boosttext;
-	GameObject boostGO;
 	// Use this for initialization
 	void Start () {
-
-		boostGO = GameObject.Find("BoostCount_P2");
-		boosttext = boostGO.GetComponent<Text>();
-		boosttext.text = "Boost\n    " + boost.ToString ();
 
 		ufo = GetComponent<Rigidbody>();
 	}
@@ -47,7 +41,6 @@ public class P2_Movement : MonoBehaviour {
 					s.Play ();
 					ufo.velocity = boostspeed * movement;
 					boost--;
-					boosttext.text = "Boost\n    " + boost.ToString ();
 				}
 			}
 
@@ -67,7 +60,6 @@ public class P2_Movement : MonoBehaviour {
 		if (collidedWith.tag == "PowerUpB" && boost < 3)
 		{
 			boost++;
-			boosttext.text = "Boost\n    " + boost.ToString ();
 
 		}
         else if (collidedWith.tag == "PowerMine" && GetComponentInChildren<P2_Turret>().minecount < 3)
