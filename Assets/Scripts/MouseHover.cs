@@ -6,6 +6,7 @@ public class MouseHover : MonoBehaviour {
 
     public bool isStart;
     public bool isQuit;
+    public bool isstart4p;
     // Use this for initialization
     void Start () {
         GetComponent<Renderer>().material.color = Color.white;
@@ -29,6 +30,9 @@ public class MouseHover : MonoBehaviour {
         if (isQuit)
         {
             Application.Quit();
+        }
+        if (isstart4p) {
+            Application.LoadLevel("MainScene4P");
         }
     }
 }

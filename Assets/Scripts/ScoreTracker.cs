@@ -6,6 +6,8 @@ public class ScoreTracker : MonoBehaviour {
 
     public float gameoverdelay = 3;
 
+    public bool fourplayer;
+
     public bool scoredp1 = false;
     public bool scoredp2 = false;
 
@@ -52,9 +54,16 @@ public class ScoreTracker : MonoBehaviour {
             if (scorep1 > scorep2)
             {
                 gameovertext.text = "GAME OVER Player1 Wins!!";
+                if (fourplayer) {
+                    gameovertext.text = "GAME OVER TEAM 1 Wins!!";
+                }
             }
             else {
                 gameovertext.text = "GAME OVER Player2 Wins!!";
+                if (fourplayer)
+                {
+                    gameovertext.text = "GAME OVER TEAM 2 Wins!!";
+                }
             }
             Destroy(GameObject.Find("Ball"));
             GameObject.Find("PlayAgain").GetComponent<Renderer>().enabled = true;
