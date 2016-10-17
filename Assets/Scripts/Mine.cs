@@ -7,7 +7,7 @@ public class Mine : MonoBehaviour {
 	public float power;
 
 	Vector3 explosionPos;
-	BoxCollider bc;
+	SphereCollider bc;
 
 	Rigidbody rb;
 
@@ -15,22 +15,22 @@ public class Mine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bc = gameObject.GetComponent<BoxCollider> ();
-		bc.enabled = false;
+		bc = gameObject.GetComponent<SphereCollider> ();
+		bc.enabled = true;
 		StartCoroutine (activateMine());
 		activated = false;
-
-
+		AudioSource s = GameObject.Find ("plant mine").GetComponent<AudioSource> ();
+		s.Play ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnCollisionEnter(Collision other){
-		if (activated) {
+		if (activated && other.gameObject.tag != "Field") {
 			Vector3 explosionPos = transform.position;
 			Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
 			foreach (Collider hit in colliders) {
@@ -40,6 +40,8 @@ public class Mine : MonoBehaviour {
 					rb.AddExplosionForce (power, explosionPos, radius);
 
 			}
+			AudioSource s = GameObject.Find ("Explosion").GetComponent<AudioSource>();
+			s.Play ();
 			Destroy (this.gameObject);
 
 		}
@@ -47,8 +49,9 @@ public class Mine : MonoBehaviour {
 
 	IEnumerator activateMine(){
 		yield return new WaitForSeconds (3);
-		bc.enabled = true;
 		activated = true;
+		AudioSource s = GameObject.Find ("mine armed").GetComponent<AudioSource> ();
+		s.Play ();
 		gameObject.GetComponent<Renderer>().material.color = Color.red;
 
 	}
