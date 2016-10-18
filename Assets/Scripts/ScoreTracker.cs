@@ -70,6 +70,7 @@ public class ScoreTracker : MonoBehaviour {
             GameObject.Find("PlayAgain").GetComponent<Collider>().enabled = true;
             GameObject.Find("Quit").GetComponent<Renderer>().enabled = true;
             GameObject.Find("Quit").GetComponent<Collider>().enabled = true;
+			GameObject.Find ("countDown").GetComponent<Text> ().text = "";
             gameover = Time.time + gameoverdelay;
         }
     }

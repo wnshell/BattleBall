@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class MoveBall : MonoBehaviour {
 
@@ -7,7 +9,7 @@ public class MoveBall : MonoBehaviour {
     public Vector3 startpos;
 
     //RESPAWN VARIBLES
-    public float respawntime = 3;
+    public float respawntime = 5;
     public float delay;
     public bool respawn = false;
 
@@ -15,22 +17,36 @@ public class MoveBall : MonoBehaviour {
 
     public Rigidbody ball;
 
+	float timeleft;
+	bool scored = false;
+	public Text countdown;
+
 	void Start(){
 		ball = GetComponent<Rigidbody> ();
         startpos = ball.transform.position;
 		ball.maxAngularVelocity = 20.0f;
 		bounce = GameObject.Find ("ball bounce").GetComponent<AudioSource> ();
+		countdown = GameObject.Find ("countDown").GetComponent<Text> ();
 	}
 
 	void Update(){
-		/*
-		float moveX = Input.GetAxis ("Left Stick X Axis");
-		float moveZ = Input.GetAxis ("Left Stick Y Axis");
+		if (scored) {
+			timeleft -= Time.deltaTime;
+			int temp = Mathf.CeilToInt (timeleft);
+			countdown.text = temp.ToString();
+			if (timeleft < 0) {
+				scored = false;
+				countdown.text = "";
+			}
+		}
+
+		float moveX = Input.GetAxis ("Horizontal");
+		float moveZ = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveX, 0.0f, moveZ);
 
 		ball.AddForce (movement * speed);
-		*/
+
 	}
 
     void FixedUpdate() {
@@ -66,6 +82,9 @@ public class MoveBall : MonoBehaviour {
             ball.constraints = RigidbodyConstraints.FreezeAll;
             delay = Time.time + respawntime;
             respawn = true;
+			timeleft = 5.0f;
+			scored = true;
+
         }
     }
 

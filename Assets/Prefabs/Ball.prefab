@@ -26,7 +26,7 @@ GameObject:
   - 114: {fileID: 114000013986172126}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &114000013986172126
 MonoBehaviour:
@@ -107,6 +107,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  startpos: {x: 0, y: 0, z: 0}
+  respawntime: 5
+  delay: 0
+  respawn: 0
+  bounce: {fileID: 0}
+  ball: {fileID: 0}
+  countdown: {fileID: 0}
 --- !u!135 &135000014286475316
 SphereCollider:
   m_ObjectHideFlags: 1
