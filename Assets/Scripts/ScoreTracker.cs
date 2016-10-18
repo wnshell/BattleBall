@@ -53,16 +53,16 @@ public class ScoreTracker : MonoBehaviour {
         if (scorep1 == 3 || scorep2 == 3) {
             if (scorep1 > scorep2)
             {
-                gameovertext.text = "GAME OVER Player1 Wins!!";
+                gameovertext.text = "GAME OVER PLAYER1 WINS!!";
                 if (fourplayer) {
-                    gameovertext.text = "GAME OVER TEAM 1 Wins!!";
+                    gameovertext.text = "GAME OVER TEAM 1 WINS!!";
                 }
             }
             else {
-                gameovertext.text = "GAME OVER Player2 Wins!!";
+                gameovertext.text = "GAME OVER PLAYER2 WINS!!";
                 if (fourplayer)
                 {
-                    gameovertext.text = "GAME OVER TEAM 2 Wins!!";
+                    gameovertext.text = "GAME OVER TEAM 2 WINS!!";
                 }
             }
             Destroy(GameObject.Find("Ball"));

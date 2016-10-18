@@ -13,7 +13,7 @@ public class Mine3_P2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("P2UFO").GetComponentInChildren<P2_Turret>().minecount > 1)
+        if (GameObject.Find("P2UFO").GetComponentInChildren<P2_Turret>().minecount > 2)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         }

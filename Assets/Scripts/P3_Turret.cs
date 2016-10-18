@@ -68,13 +68,13 @@ public class P3_Turret : MonoBehaviour {
 		Vector3 direction = new Vector3 (bulletOrigin.position.x - transform.position.x, 0, bulletOrigin.position.z - transform.position.z);
 		go = Instantiate (bulletPrefab, bulletOrigin.position, Quaternion.Euler(0, 0, 0)) as GameObject;
 		go.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
-		go.tag = "P2bullet";
+		go.tag = "P3bullet";
 		go.layer = LayerMask.NameToLayer ("Bullet2");
 	}
 
 	public int countBulletsOnScreen(){
 		GameObject[] getCount;
-		getCount = GameObject.FindGameObjectsWithTag ("P2bullet");
+		getCount = GameObject.FindGameObjectsWithTag ("P3bullet");
 		int bulletCount = getCount.Length;
 		return bulletCount;
 	}

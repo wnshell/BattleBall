@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 2
-  bulletSpeed: 14
+  bulletSpeed: 18
   minecount: 1
   bulletOrigin: {fileID: 0}
   mineOrigin: {fileID: 0}

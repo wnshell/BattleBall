@@ -15,6 +15,8 @@ TagManager:
   - PowerMine
   - Field
   - wall
+  - P3bullet
+  - P4bullet
   layers:
   - Default
   - TransparentFX
