@@ -952,13 +952,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef25411b93c9be448f219615afa4747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 0
-  bulletSpeed: 0
+  rotSpeed: 2
+  bulletSpeed: 14
   minecount: 1
-  bulletOrigin: {fileID: 0}
-  mineOrigin: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  minePrefab: {fileID: 0}
+  bulletOrigin: {fileID: 4000011705528432}
+  mineOrigin: {fileID: 4000013718047330}
+  bulletPrefab: {fileID: 1000011527308084, guid: 97d22b967079749c989daee2139ec266,
+    type: 2}
+  minePrefab: {fileID: 1000011464108166, guid: b4cb2995f843d49718dcffe13e1c21e4, type: 2}
 --- !u!114 &114000012956042330
 MonoBehaviour:
   m_ObjectHideFlags: 1
