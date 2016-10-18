@@ -36,6 +36,8 @@ public class P3_Movement : MonoBehaviour {
             if ((Input.GetButtonDown("LeftBumper_P3") || Input.GetKeyDown("left shift")))
             {	
 				if (movement.magnitude > 0.3f) {
+					AudioSource s = GameObject.Find ("booster").GetComponent<AudioSource> ();
+					s.Play ();
 					ufo.velocity = boostspeed * movement.normalized;
 					boost--;
                 }

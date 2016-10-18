@@ -1396,7 +1396,6 @@ MonoBehaviour:
   ___________________: 0
   scoretext_P1: {fileID: 0}
   scoretext_P2: {fileID: 0}
-  countDown: {fileID: 0}
   gameovertext: {fileID: 0}
   gameover: 0
 --- !u!1 &830253616
@@ -1633,7 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3199,25 +3198,6 @@ Prefab:
     - target: {fileID: 4000012587014970, guid: 2ac48d3cc20e54fe4be842fed28003b2, type: 2}
       propertyPath: m_RootOrder
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 54000010265374832, guid: 2ac48d3cc20e54fe4be842fed28003b2,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 54000010265374832, guid: 2ac48d3cc20e54fe4be842fed28003b2,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013475305416, guid: 2ac48d3cc20e54fe4be842fed28003b2, type: 2}
-      propertyPath: m_TagString
-      value: ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 54000010265374832, guid: 2ac48d3cc20e54fe4be842fed28003b2,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ac48d3cc20e54fe4be842fed28003b2, type: 2}
