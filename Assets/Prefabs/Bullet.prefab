@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d5e0d2b0e5241118a2f95746aa8153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flash: {fileID: 100000, guid: 3c1f0555cc3fd4e1d87382fbaa007f8f, type: 2}
   s: {fileID: 0}
 --- !u!135 &135000011941498376
 SphereCollider:
