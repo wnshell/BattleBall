@@ -5,7 +5,7 @@ public class playerNoise : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		AudioSource s = GameObject.Find ("clink").GetComponent<AudioSource> ();
-		if (other.gameObject.tag != "ball" && other.gameObject.tag != "Field"){
+		if (other.gameObject.tag != "ball" && other.gameObject.tag != "Field" && other.gameObject.tag != "Mine"){
 			s.Play ();
 		}
 	}

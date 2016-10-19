@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 25
   power: 4500
+  explosion: {fileID: 100000, guid: bf3f387d006f0414b80b25ba2b9cdf38, type: 2}
   activated: 0
 --- !u!135 &135000013189742974
 SphereCollider:

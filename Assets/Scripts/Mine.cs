@@ -6,6 +6,8 @@ public class Mine : MonoBehaviour {
 	public float radius;
 	public float power;
 
+	public GameObject explosion;
+
 	Vector3 explosionPos;
 	SphereCollider bc;
 
@@ -42,6 +44,7 @@ public class Mine : MonoBehaviour {
 			}
 			AudioSource s = GameObject.Find ("Explosion").GetComponent<AudioSource>();
 			s.Play ();
+			GameObject go = Instantiate (explosion, transform.position,Quaternion.Euler(0, 0, 0)) as GameObject;
 			Destroy (this.gameObject);
 
 		}
